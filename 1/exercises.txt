@@ -1,0 +1,76 @@
+Section 1.6
+
+Equivalence exercises
+
+1. \xy.xz
+a) \xz.xz - no, z should be free after fully applying
+b) \mn.mz - yes
+c) \z.(\x.xz) - no, there should be a free variable named 'z' at the end (free
+                variables are not alpha equivalent, hence the name matters)
+
+2. \xy.xxy
+a) \mn.mnp - no, the argument to the outermost lambda should be repeated
+b) \x.(\y.xy) - no, there are only 2 terms instead of 3
+c) \a.(\b.aab) - yes, this is the non-shorthand representation
+
+3. \xyz.zx
+a) \x(\y.(\z.z)) - no, the argument to the outermost lambda is not preserved.
+b) \tos.st - yes, alpha equivalence
+c) \mnp.mn - no, wrong order of output terms
+
+Section 1.11 Chapter Exercises
+
+Combinators, or not:
+1. \x.xxx - yes, this is a combinator
+2. \xy.zx - no, z is free
+3. \xyz.xy(zx) - yes
+4. \xyz.xy(zxy) - yes
+5. \xy.xy(zxy) - no, z is free
+
+Normal form or diverge?
+1. \x.xxx - yes
+2. (\z.zz)(\y.yy) - no, this is the omega combinator.
+3. (\x.xxx)z - yes, this evaluates to zzz
+
+Beta reduce
+1. (\abc.cba)zz(\wv.w)
+(\a.(\b.(\c.cba)))zz(\wv.w)
+(\b.(\c.cbz))z(\wv.w)
+(\c.czz)(\wv.w)
+(\wv.w)zz
+z
+
+2. (\x.\y.xyy)(\a.a)b
+(\y.(\a.a)yy)b
+(\a.a)bb
+bb
+
+3. (\y.y)(\x.xx)(\z.zq)
+(\x.xx)(\z.zq)
+(\z.zq)(\z.zq)
+(\z.zq)q
+qq
+
+4. (\z.z)(\z.zz)(\z.zy)
+(\z.zz)(\z.zy)
+(\z.zy)(\z.zy)
+(\z.zy)y
+yy
+
+5. (\x.\y.xyy)(\y.y)y
+(\y.(\y.y)yy)y
+(\y.y)yy
+yy
+
+6. (\a.aa)(\b.ba)c
+(\b.ba)(\b.ba)c
+(\b.ba)(a)c
+aac
+
+7. (\xyz.xz(yz))(\x.z)(\x.a)
+(\x.\y.\z.xz(yz))(\x.z)(\x.a)
+(\x.\y.\p.xp(yp))(\x.z)(\x.a) - rename the z which has a binding to p via alpha equivalence
+(\y.\p.(\x.z)p(yp))(\x.a)
+(\p.(\x.z)p((\x.a)p))
+(\p.z((\x.a)p)
+(\p.za)
