@@ -1,0 +1,5 @@
+1. Yes - it was defined before it.
+2. Assuming the variables are going up through the alphabet, no. Or if these are the only lines - still no.
+3. Yes, but d is not in scope for r! Hence it still fails to compile. (scopetest.hs)
+4. Yes, now it works, as d is now in scope for r. (scopetest2.hs)
+
