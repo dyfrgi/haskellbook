@@ -1,0 +1,27 @@
+name:                addition
+version:             0.1.0.0
+-- synopsis:
+-- description:
+homepage:            https://github.com/dyfrgi/addition#readme
+license:             BSD3
+license-file:        LICENSE
+author:              Michael Leuchtenburg
+maintainer:          michael@slashhome.org
+copyright:           Michael Leuchtenburg
+category:            Testing
+build-type:          Simple
+extra-source-files:  README.md
+cabal-version:       >=1.10
+
+library
+  hs-source-dirs:      src
+  exposed-modules:     Addition
+  ghc-options:         -Wall -fno-warn-type-defaults -fwarn-tabs
+  build-depends:       base >= 4.7 && < 5
+                     , hspec
+                     , QuickCheck
+  default-language:    Haskell2010
+
+source-repository head
+  type:     git
+  location: https://github.com/dyfrgi/addition
