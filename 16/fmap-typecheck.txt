@@ -1,0 +1,22 @@
+(.) :: (b -> c) -> (a -> b) -> a -> c
+fmap1 :: Functor f => (m -> n) -> f m -> f n
+fmap2 :: Functor g => (x -> y) -> g x -> g y
+
+(.) fmap1 fmap2
+
+-- from ghci
+(.) fmap1 :: Functor f => (a1 -> a2 -> b) -> a1 -> f a2 -> f b
+
+-- from ghci
+(.) fmap fmap :: (Functor f2, Functor f1) => (a -> b) -> f1 (f2 a) -> f1 (f2 b)
+
+(.) fmap :: (a -> b -> c) -> a -> f b -> f c
+            [1]  [2]  [3]
+
+When applied to fmap2,
+a :: (x -> y)
+b :: g x
+c :: g y
+
+leading to:
+(.) fmap1 fmap2 :: (x -> y) -> f (g x) -> f (g y)
